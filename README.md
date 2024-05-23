@@ -10,6 +10,13 @@ export LANGCHAIN_API_KEY=<your-api-key>
 export LANGCHAIN_PROJECT=fine-tuning-example 
 ```
 
+### Building training set (at least train the model before class)
+
+1. Run the `main.py` class with the gpt-3.5-turbo model. Make sure the system message is in the prompt. This will produce 60 messages. 
+1. In the `fine_tune-model.ipynb`, you can execute all the code to get the 60 messages, save them to a dataset, and use that dataset to fine-tune a model (which will take about 10 minutes)
+1. Once the fine-tuned model is created, you can use it in the main.py file and remove the system message.
+1. Use the `evaluation.py` class to test thhe gpt-3.5-turbo model against the newly fine-tuned model. You can go into the dataset section and see how the two compare/
+
 ## Optional steps
 
 ### Launch LangServe
