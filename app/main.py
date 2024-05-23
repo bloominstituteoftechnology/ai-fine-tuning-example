@@ -6,14 +6,14 @@ from functools import partial
 import concurrent.futures
 
 llm = ChatOpenAI(model="gpt-3.5-turbo-0125")
-# llm = ChatOpenAI(model="ft:gpt-3.5-turbo-0125:xevant::9Q0Hk9G4") # This is the fine-tuned model. You can remove the system message when using this model.
+llm = ChatOpenAI(model="ft:gpt-3.5-turbo-0125:bloomtech::9SCaCLTS") # This is the fine-tuned model. You can remove the system message when using this model.
 
 def generate_review_responses(prompt_tag, reviews):
     for review in reviews:
         prompt = ChatPromptTemplate(
             tags=["reviews", prompt_tag], 
             messages=[
-                SystemMessage(content="You are a customer service agent that talks in a pirate voice"), # Comment this line if using the fine-tuned model
+                # SystemMessage(content="You are a customer service agent that talks in a pirate voice"), # Comment this line if using the fine-tuned model
                 HumanMessage(content=f"Provide a customer-facing response for the following review: {review}")
             ],
         )
